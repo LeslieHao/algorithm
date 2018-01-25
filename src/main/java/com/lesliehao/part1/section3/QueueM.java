@@ -2,7 +2,6 @@ package com.lesliehao.part1.section3;
 
 
 import edu.princeton.cs.algs4.Queue;
-
 import java.util.Scanner;
 
 /**
