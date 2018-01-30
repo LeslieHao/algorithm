@@ -8,7 +8,6 @@ import org.junit.Test;
  */
 public class BinarySearch {
     public static int search(int key, int[] arr) {
-
         int lo = 0;
         int hi = arr.length - 1;
         while (lo <= hi) {
