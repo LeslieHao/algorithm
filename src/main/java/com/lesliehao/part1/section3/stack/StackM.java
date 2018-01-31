@@ -1,11 +1,10 @@
-package com.lesliehao.part1.section3;
+package com.lesliehao.part1.section3.stack;
 
 import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.function.Consumer;
 
 /**
  * DESC: 下压栈（先进后出）

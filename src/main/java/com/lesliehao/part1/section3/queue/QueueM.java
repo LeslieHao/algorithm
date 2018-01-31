@@ -1,4 +1,4 @@
-package com.lesliehao.part1.section3;
+package com.lesliehao.part1.section3.queue;
 
 
 import edu.princeton.cs.algs4.Queue;
