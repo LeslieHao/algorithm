@@ -1,4 +1,4 @@
-package com.lesliehao.part1;
+package com.lesliehao.part1_basic;
 
 import org.junit.Test;
 

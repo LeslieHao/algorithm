@@ -1,4 +1,4 @@
-package com.lesliehao.part1.section3.queue;
+package com.lesliehao.part1_basic.section3.queue;
 import java.util.Iterator;
 
 /**

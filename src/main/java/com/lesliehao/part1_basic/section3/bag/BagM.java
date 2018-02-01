@@ -1,9 +1,8 @@
-package com.lesliehao.part1.section3.bag;
+package com.lesliehao.part1_basic.section3.bag;
 
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.StdIn;
-import edu.princeton.cs.algs4.StdOut;
 
 /**
  * DESC: 背包

@@ -1,4 +1,4 @@
-package com.lesliehao.part1.section3.linked;
+package com.lesliehao.part1_basic.section3.linked;
 
 import org.junit.Test;
 

@@ -1,12 +1,12 @@
-package com.lesliehao.part1.section3.linked;
+package com.lesliehao.part1_basic.section3.bag;
 
 import java.util.Iterator;
 
 /**
- * DESC: 下压堆栈的链表实现
+ * DESC: 背包的链表实现
  * Created by Hh on 2018/1/30
  */
-public class LinkedStack<Item> implements Iterable {
+public class LinkedBag<Item> implements Iterable {
 
     private Node first; // 头节点
 
@@ -19,11 +19,11 @@ public class LinkedStack<Item> implements Iterable {
 
     private class LinkedStackIterator implements Iterator {
 
-        private Node current = first;
+        private Node current = first; // 当前迭代节点
 
         @Override
         public boolean hasNext() {
-            return current.next != null;
+            return current.next!=null;
         }
 
         @Override
@@ -39,21 +39,13 @@ public class LinkedStack<Item> implements Iterable {
         Node next;
     }
 
-    private void push(Item item) {
+    private void add(Item item) {
         // 表头插入
         Node oldFirst = first;
         first = new Node();
         first.next = oldFirst;
         first.item = item;
         N++;
-    }
-
-    private Item pop(){
-        // 表头删除
-        Item item = first.item;
-        first = first.next;
-        N--;
-        return item;
     }
 
     private boolean isEmpty(){
