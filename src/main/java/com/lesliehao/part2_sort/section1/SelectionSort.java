@@ -51,15 +51,17 @@ public class SelectionSort {
 
     public static boolean isSorted(Comparable[] a) {
         for (int i = 1; i < a.length; i++) {
+            // i-1 不出现数组越界
             if (less(a[i],a[i-1])) return false;
         }
         return true;
     }
 
     public static void main(String[] args) {
-        Integer[] a = {1, 2, 4, 3, 5, 6, 8, 7};
-        SelectionSort.sort(a);
-        SelectionSort.show(a);
-        System.out.println(SelectionSort.isSorted(a));
+        Integer[] arr = {1, 2, 3, 5, 1, 2, 7, 3, 54, 7};
+//        Integer[] a = {1, 2, 4, 3, 5, 6, 8, 7};
+        SelectionSort.sort(arr);
+        SelectionSort.show(arr);
+        System.out.println(SelectionSort.isSorted(arr));
     }
 }
