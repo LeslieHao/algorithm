@@ -1,5 +1,6 @@
 package com.lesliehao.part2_sort.section2;
 
+import com.lesliehao.part2_sort.section1.InsertionSort;
 import edu.princeton.cs.algs4.StdRandom;
 import org.junit.Test;
 
@@ -16,7 +17,10 @@ public class QuickSort {
     }
 
     private static void sort(Comparable[] a, int lo, int hi) {
-        if (hi <= lo) return;
+        if (hi <= lo){ return;}
+        // 对于小数组，插入排序比快速排序快，因为快速排序要递归，因此在排序小数组时使用插入排序。
+//        int M = 7;   // M 取值在5-15 之间较优
+//        if(hi<= lo+M) InsertionSort.sort(a, lo, hi);
         int j = partition(a, lo, hi); // 切分
         sort(a, lo, j - 1); // 左半部分排序
         sort(a, j + 1, hi); // 右半部分排序
