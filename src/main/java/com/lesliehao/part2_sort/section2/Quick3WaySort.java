@@ -9,6 +9,7 @@ import java.util.Arrays;
  * Created by Hh on 2018/2/21
  */
 public class Quick3WaySort {
+
     public static void sort(Comparable[] a) {
         sort(a, 0, a.length - 1);
     }
