@@ -17,7 +17,7 @@ public class InsertionSort {
     /**
      * 插入排序
      * 从index 1 开始，向前插入
-     * 如果大于前一个数就交换位置
+     * 如果小于前一个数就交换位置
      * @param a
      */
     public static void sort(Comparable[] a) {
