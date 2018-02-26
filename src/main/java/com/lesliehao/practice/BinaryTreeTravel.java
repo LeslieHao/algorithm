@@ -1,7 +1,10 @@
-package com.lesliehao.part4_tree;
+package com.lesliehao.practice;
 
+import com.lesliehao.part1_basic.section3.linked.Node;
+import com.sun.org.apache.xpath.internal.operations.Or;
 import org.junit.Test;
 
+import javax.swing.*;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
@@ -10,7 +13,7 @@ import java.util.Stack;
  * DESC: 二叉树遍历
  * Created by Hh on 2018/2/25
  */
-public class BinaryTreeOrder {
+public class BinaryTreeTravel {
 
     @Test
     public void test() {
@@ -57,6 +60,7 @@ public class BinaryTreeOrder {
             preOrder(t.left);
             preOrder(t.right);
         }
+
     }
 
     /**
@@ -86,21 +90,21 @@ public class BinaryTreeOrder {
      * 层序遍历
      */
     void tierOrder(Node t) {
-        if (t != null) {
-            int depth = getDepth(t);
-            for (int i = 1; i <= depth; i++) {
-                tierOrder(t, i);
-            }
+        if (t == null) {
+            return;
+        }
+        int depth = getDepth(t);
+        for (int i = 1; i <= depth; i++) {
+            tierOrder(t, i);
         }
     }
 
     private void tierOrder(Node t, int level) {
-        if (t == null || level < 1) {
+        if (t == null || level == 0) {
             return;
         }
         if (level == 1) {
             t.visit();
-            return;
         }
         tierOrder(t.left, level - 1);
         tierOrder(t.right, level - 1);
@@ -110,11 +114,9 @@ public class BinaryTreeOrder {
      * 递归获取二叉树深度
      */
     int getDepth(Node t) {
-        if (t == null) {
-            return 0;
-        }
-        int l = getDepth(t.left); // 左子树深度
-        int r = getDepth(t.right); // 右子树深度
+        if (t == null) return 0;
+        int l = getDepth(t.left);
+        int r = getDepth(t.right);
         return Math.max(l, r) + 1;
     }
 
@@ -152,7 +154,7 @@ public class BinaryTreeOrder {
 
     void afterOrder1(Node t) {
         Stack<Node> stack = new Stack<>();
-        Stack<Node> output = new Stack<>(); // 存储输出节点
+        Stack<Node> output = new Stack<>();
         while (t != null || !stack.empty()) {
             if (t != null) {
                 stack.push(t);
@@ -163,6 +165,7 @@ public class BinaryTreeOrder {
                 t = t.left;
             }
         }
+
         while (!output.empty()) {
             output.pop().visit();
         }
@@ -172,48 +175,43 @@ public class BinaryTreeOrder {
         Queue<Node> queue = new LinkedList<>();
         queue.add(t);
         while (!queue.isEmpty()) {
-            Node thisNode = queue.poll();
-            thisNode.visit();
-            if (thisNode.left!=null) queue.add(thisNode.left);
-            if (thisNode.right!=null) queue.add(thisNode.right);
+            t = queue.poll();
+            t.visit();
+            if (t.left != null) queue.add(t.left);
+            if (t.right != null) queue.add(t.right);
         }
     }
 
     int getDepth1(Node t) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(t);
+        Queue<Node> q = new LinkedList<>();
         int tier = 0;
-        while (!queue.isEmpty()) {
-            int len = queue.size(); // 此层的元素个数
+        q.add(t);
+        while (!q.isEmpty()) {
+            int len = q.size();
             tier++;
-            // 层序遍历
-            while (len > 0) {
-                len--;
-                Node thisNode = queue.poll();
-                if (thisNode.left!=null) queue.add(thisNode.left);
-                if (thisNode.right!=null) queue.add(thisNode.right);
+            while (len-- > 0) {
+                t = q.poll();
+                if (t.left != null) q.add(t.left);
+                if (t.right != null) q.add(t.right);
             }
-
         }
         return tier;
     }
 
     int getMaxWidth(Node t) {
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(t);
+        Queue<Node> q = new LinkedList<>();
         int maxWidth = 0;
-        while (!queue.isEmpty()) {
-            int len = queue.size(); // 此层的元素个数
-            maxWidth = Math.max(maxWidth, len);
-            // 层序遍历
-            while (len > 0) {
-                len--;
-                Node thisNode = queue.poll();
-                if (thisNode.left!=null) queue.add(thisNode.left);
-                if (thisNode.right!=null) queue.add(thisNode.right);
+        q.add(t);
+        while (!q.isEmpty()) {
+            int len = q.size();
+            maxWidth = Math.max(len, maxWidth);
+            while (len-- > 0) {
+                t = q.poll();
+                if (t.left!=null) q.add(t.left);
+                if (t.right!=null) q.add(t.right);
             }
-
         }
+
         return maxWidth;
     }
 
@@ -240,7 +238,9 @@ public class BinaryTreeOrder {
         nodes[1].right = nodes[4];
         nodes[2].left = nodes[5];
         nodes[2].right = nodes[6];
-        nodes[6].right = nodes[7];
+        nodes[6].left = nodes[7];
+        nodes[6].right = nodes[8];
+
         return root;
     }
 
@@ -259,4 +259,5 @@ public class BinaryTreeOrder {
             System.out.print(element + " ");
         }
     }
+
 }
