@@ -11,22 +11,22 @@ import java.util.Stack;
  */
 public class LinkAlgorithm {
 
-    public static void main(String[] args) {
+    //public static void main(String[] args) {
 //        Node root = getLink();
 //        showLink(root);
 //        Node toor = reverse(root);
 //        showLink(toor);
 //        reverseOut(root);
-        Node t1 = getLink();
+//        Node t1 = getLink();
 //        Node t2 = getLink();
 //        System.out.println(isIntersect(t1, t2));
 //        System.out.println(isIntersect2(t1, t2));
 //        System.out.println(findJoinNode(t1, t2).element);
 //        Node t = merge(t1, t2);
 //        showLink(t);
-        Node t = KthNodeFormEnd(t1, 3);
-        System.out.println(t.element);
-    }
+//        Node t = KthNodeFormEnd(t1, 3);
+//        System.out.println(t.element);
+//    }
 
 
     /**
@@ -233,4 +233,35 @@ public class LinkAlgorithm {
             System.out.print(element + " ");
         }
     }
+
+
+    /**
+     * 链表是否成环
+     * @param head
+     * @return
+     */
+    static boolean isRing(Node head) {
+        Node bike = head;
+        Node car = head;
+        if (head.next == null) {
+            return true;
+        }
+        if (head.next.next == null) {
+            return false;
+        }
+
+        if (head.next.next == head) {
+            return true;
+        }
+        car = head.next.next;
+        while (car.next!=null&&car.next.next != null) {
+            car = car.next.next;
+            bike = bike.next;
+            if (car == bike) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

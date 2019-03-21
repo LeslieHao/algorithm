@@ -1,6 +1,5 @@
 package com.lesliehao.part1_basic.section3;
 
-import edu.princeton.cs.algs4.In;
 import org.junit.Test;
 
 import java.util.LinkedList;
