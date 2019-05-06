@@ -10,5 +10,5 @@ public class BinaryNode {
 
     BinaryNode left; // 左子节点
 
-    BinaryNode ritght; // 右子节点
+    BinaryNode ritgt; // 右子节点
 }
